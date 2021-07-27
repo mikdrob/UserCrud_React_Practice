@@ -16,7 +16,7 @@ import {
         type: CREATE_USER,
         payload: res.data,
       });
-  
+
       return Promise.resolve(res.data);
     } catch (err) {
       return Promise.reject(err);

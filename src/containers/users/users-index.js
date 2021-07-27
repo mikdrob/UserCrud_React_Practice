@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, next } from "react-redux";
+import {createStore, applyMiddleware} from "redux";
+import { loggerMiddleware } from "../../reducers/users";
 import { Link } from "react-router-dom";
 import {
     retrieveUsers,
@@ -15,9 +17,12 @@ const UsersIndex = () => {
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
 
+
+
+
     useEffect(() => {
         dispatch(retrieveUsers());
-    }, []);
+    }, [dispatch]);
 
     const onChangeSearchUsername = e => {
         const searchUsername = e.target.value;

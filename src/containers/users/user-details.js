@@ -33,25 +33,6 @@ const UserDetails = (props) => {
         setCurrentUser({ ...currentUser, [name]: value });
     };
 
-    const updateStatus = status => {
-        const data = {
-            id: currentUser.id,
-            title: currentUser.title,
-            description: currentUser.description,
-            published: status
-        };
-
-        dispatch(updateUser(currentUser.id, data))
-            .then(response => {
-                console.log(response);
-
-                setCurrentUser({ ...currentUser, published: status });
-                setMessage("The status was updated successfully!");
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    };
 
     const updateContent = () => {
         dispatch(updateUser(currentUser.id, currentUser))
